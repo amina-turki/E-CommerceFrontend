@@ -10,14 +10,34 @@ import { TitleComponent } from './layout/admin/title/title.component';
 import { AuthComponent } from './layout/auth/auth.component';
 import {SharedModule} from './shared/shared.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { AjouterEmployeComponent } from './FrontCommerce/Employe/ajouter-employe/ajouter-employe.component';
+import { ModifierEmployeComponent } from './FrontCommerce/Employe/modifier-employe/modifier-employe.component';
+import { AfficherEmployeComponent } from './FrontCommerce/Employe/afficher-employe/afficher-employe.component';
+import { ModifierVenteComponent } from './FrontCommerce/Vente/modifier-vente/modifier-vente.component';
+import { AjouterVenteComponent } from './FrontCommerce/Vente/ajouter-vente/ajouter-vente.component';
+import { AfficherVenteComponent } from './FrontCommerce/Vente/afficher-vente/afficher-vente.component';
+import { AfficherProduitComponent } from './FrontCommerce/Produit/afficher-produit/afficher-produit.component';
+import { AjouterProduitComponent } from './FrontCommerce/Produit/ajouter-produit/ajouter-produit.component';
+import { ModifierProduitComponent } from './FrontCommerce/Produit/modifier-produit/modifier-produit.component';
 
+//ng g m FrontCommerce/Produit/AjouterProduit/ModelAjouterProduit --routing
 @NgModule({
   declarations: [
     AppComponent,
     AdminComponent,
     BreadcrumbsComponent,
     TitleComponent,
-    AuthComponent
+    AuthComponent,
+    AjouterEmployeComponent,
+    ModifierEmployeComponent,
+    AfficherEmployeComponent,
+    ModifierVenteComponent,
+    AjouterVenteComponent,
+    AfficherVenteComponent,
+    AfficherProduitComponent,
+    AjouterProduitComponent,
+    ModifierProduitComponent,
+
   ],
   imports: [
     BrowserModule,
