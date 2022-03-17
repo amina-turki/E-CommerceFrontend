@@ -32,7 +32,7 @@ export interface Menu {
 
 const MENUITEMS = [
   {
-    label: 'Navigation',
+    label: 'Menu',
     main: [
       {
         state: 'dashboard',
@@ -41,7 +41,7 @@ const MENUITEMS = [
         type: 'link',
         icon: 'ti-home'
       },
-      {
+    /*  {
         state: 'basic',
         short_label: 'B',
         name: 'Basic Components',
@@ -57,29 +57,37 @@ const MENUITEMS = [
             name: 'Typography'
           }
         ]
-      },
+      },*/
       {
         state: 'notifications',
         short_label: 'n',
-        name: 'Notifications',
+        name: 'Produits',
         type: 'link',
-        icon: 'ti-crown'
+        icon: 'ti-receipt'
+      },
+
+      {
+        state: 'notifications',
+        short_label: 'n',
+        name: 'Ventes',
+        type: 'link',
+        icon: 'ti-receipt'
       },
     ],
   },
   {
-    label: 'Tables',
+    label: 'Déconnexion',
     main: [
       {
         state: 'bootstrap-table',
         short_label: 'B',
-        name: 'Bootstrap Table',
+        name: 'Déconnexion',
         type: 'link',
-        icon: 'ti-receipt'
+        icon: 'ti-user',
       }
     ]
   },
-  {
+ /* {
     label: 'Map And Extra Pages ',
     main: [
       {
@@ -192,7 +200,7 @@ const MENUITEMS = [
         target: true
       }
     ]
-  }
+  }*/
 ];
 
 @Injectable()
