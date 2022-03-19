@@ -17,10 +17,11 @@ import { ModifierVenteComponent } from './FrontCommerce/Vente/modifier-vente/mod
 import { AjouterVenteComponent } from './FrontCommerce/Vente/ajouter-vente/ajouter-vente.component';
 import { AfficherVenteComponent } from './FrontCommerce/Vente/afficher-vente/afficher-vente.component';
 //import { AfficherProduitComponent } from './FrontCommerce/Produit/afficher-produit/afficher-produit.component';
-import { AjouterProduitComponent } from './FrontCommerce/Produit/ajouter-produit/ajouter-produit.component';
+//import { AjouterProduitComponent } from './FrontCommerce/Produit/ajouter-produit/ajouter-produit.component';
 import { ModifierProduitComponent } from './FrontCommerce/Produit/modifier-produit/modifier-produit.component';
 import { HttpClientModule } from '@angular/common/http';
-
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { CommonModule } from '@angular/common';
 //ng g m FrontCommerce/Produit/AjouterProduit/ModelAjouterProduit --routing
 @NgModule({
   declarations: [
@@ -36,11 +37,14 @@ import { HttpClientModule } from '@angular/common/http';
     AjouterVenteComponent,
     AfficherVenteComponent,
 
-    AjouterProduitComponent,
+    //AjouterProduitComponent,
     ModifierProduitComponent,
 
   ],
   imports: [
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,

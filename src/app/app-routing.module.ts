@@ -18,7 +18,13 @@ const routes: Routes = [
       }, {
         path: 'tableProduit',
         loadChildren: () => import('./FrontCommerce/Produit/afficher-produit/model-afficher-produit.module').then(m => m.ModelAfficherProduitModule)
-      }, {
+      },
+      
+      {
+        path: 'AjouterProduit',
+        loadChildren: () => import('./FrontCommerce/Produit/ajouter-produit/model-ajouter-produit.module').then(m => m.ModelAjouterProduitModule)
+      }, 
+      {
         path: 'notifications',
         loadChildren: () => import('./pages/ui-elements/advance/notifications/notifications.module').then(m => m.NotificationsModule)
       }, {

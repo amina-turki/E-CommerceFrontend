@@ -1,3 +1,33 @@
+<!-- Page-header start -->
+<div class="" >
+    <div class="page-header card" >
+      <div class="row align-items-end" >
+        <div class="col-lg-8">
+          <div class="page-header-title">
+            <span > <i class="icofont icofont-table bg-c-blue"></i></span>
+            <div class="d-inline">
+              <span class="d-block"><h4>Produit</h4></span>
+             
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="page-header-breadcrumb">
+            <ul class="breadcrumb">
+              <li class="breadcrumb-item">
+                <a [routerLink]="'/AjouterProduit'">
+                    <button type="button" class="btn btn-secondary">Ajouter</button>
+                </a>
+              </li>
+            
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page-header end -->
+  
 <div class="row">
     <div class="col-sm-12">
         <!-- Contextual classes table starts -->
@@ -5,20 +35,28 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th>#</th>
+                        
                         <th>Nom</th>
                         <th>Prix</th>
                         <th>Etat</th>
                         <th>Catégorie</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let produit of articles" class="table-active">
-                        <th scope="row">1</th>
+                       
                         <td>{{produit.nom}}</td>
                         <td>{{produit.etat}}</td>
                         <td>{{produit.prix}}</td>
                         <td>{{produit.etat}}</td>
+                        <td>
+                       
+                        <button (click)="SupprimerProduit(produit.id)" class="btn"><i class="fa fa-trash"></i></button>
+
+                        <button (click)="ModifierProduit(produit.id)" class="btn"><i class="fa fa-trash"></i></button>
+
+                        </td>
                     </tr>
 
                 </tbody>
