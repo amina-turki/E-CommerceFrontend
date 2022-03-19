@@ -24,6 +24,11 @@ const routes: Routes = [
         path: 'AjouterProduit',
         loadChildren: () => import('./FrontCommerce/Produit/ajouter-produit/model-ajouter-produit.module').then(m => m.ModelAjouterProduitModule)
       }, 
+
+      {
+        path: 'ModifierProduit/:id',
+        loadChildren: () => import('./FrontCommerce/Produit/modifier-produit/model-modifier-produit.module').then(m => m.ModelModifierProduitModule)
+      }, 
       {
         path: 'notifications',
         loadChildren: () => import('./pages/ui-elements/advance/notifications/notifications.module').then(m => m.NotificationsModule)

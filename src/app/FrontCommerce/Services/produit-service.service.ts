@@ -23,9 +23,18 @@ export class ProduitServiceService {
     return this.httpClient.get<Produit[]>(this.apiURL)
 
   }
+
   create(article): Observable<Produit> {
-    return this.httpClient.post<Produit>(this.apiURL, JSON.stringify(article),
-      this.httpOptions)
+    return this.httpClient.post<Produit>(this.apiURL,article)
+  }
+
+  update(id, article): Observable<Produit> {
+    return this.httpClient.put<Produit>(this.apiURL + id, article)
+  }
+
+
+  Modifier(article): Observable<Produit> {
+    return this.httpClient.put<Produit>(this.apiURL,article)
   }
 
 
@@ -34,12 +43,5 @@ export class ProduitServiceService {
   }
 
 
-  /* getAll() {
-     this.httpClient.get(this.apiURL).subscribe(
-       data => {
- 
-     return data;
-       });
- 
-     }*/
+
 }

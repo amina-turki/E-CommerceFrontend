@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProduitServiceService } from '../../Services/produit-service.service';
 
@@ -12,7 +12,7 @@ export class AjouterProduitComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(public produitService: ProduitServiceService, private router: Router) { }
+  constructor(private fb: FormBuilder,public produitService: ProduitServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -25,12 +25,12 @@ export class AjouterProduitComponent implements OnInit {
   get f() {
     return this.form.controls;
   }
-  submit() {
-    console.log(this.form.value);
-   // this.produitService.create(this.form.value).subscribe(res => {
-     // console.log('Article created successfully!');
-      //this.router.navigateByUrl('/tableProduit');
-   // })
+  onsubmit() {
+    //console.log(this.form.value);
+    this.produitService.create(this.form.value).subscribe(res => {
+      console.log('Article created successfully!');
+      this.router.navigateByUrl('/tableProduit');
+    })
   }
 
   

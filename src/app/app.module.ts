@@ -20,7 +20,8 @@ import { AfficherVenteComponent } from './FrontCommerce/Vente/afficher-vente/aff
 //import { AjouterProduitComponent } from './FrontCommerce/Produit/ajouter-produit/ajouter-produit.component';
 import { ModifierProduitComponent } from './FrontCommerce/Produit/modifier-produit/modifier-produit.component';
 import { HttpClientModule } from '@angular/common/http';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+ 
 import { CommonModule } from '@angular/common';
 //ng g m FrontCommerce/Produit/AjouterProduit/ModelAjouterProduit --routing
 @NgModule({
@@ -43,13 +44,14 @@ import { CommonModule } from '@angular/common';
   ],
   imports: [
     CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
+    
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     SharedModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   providers: [],

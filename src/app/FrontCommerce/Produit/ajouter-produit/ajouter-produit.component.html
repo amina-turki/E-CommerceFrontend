@@ -1,11 +1,12 @@
 
 <div class="container mt-3">
     <h2>Ajouter produit</h2>
-    <form [formsGroup]="form"  (ngSubmit)="submit()">
+    <form [formGroup]="form"  (ngSubmit)="onsubmit()">
         <div class="mb-3 mt-3">
             <label for="nom">Nom:</label>
             <input type="text" class="form-control" id="nom" placeholder="Enter nom"  name="nom"   formControlName="nom">
           </div>
+
           <div class="mb-3">
             <label for="prix">Prix:</label>
             <input type="number" class="form-control" id="prix" placeholder="Enter prix" name="prix" formControlName="prix">
