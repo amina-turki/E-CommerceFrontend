@@ -17,7 +17,7 @@ export class AjouterProduitComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       nom: new FormControl('', [Validators.required, Validators.pattern('^[a-zAZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+')]),
-      
+
       prix: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")])
     });
   }
@@ -27,11 +27,11 @@ export class AjouterProduitComponent implements OnInit {
   }
   submit() {
     console.log(this.form.value);
-   // this.produitService.create(this.form.value).subscribe(res => {
-     // console.log('Article created successfully!');
-      //this.router.navigateByUrl('/tableProduit');
-   // })
+    this.produitService.create(this.form.value).subscribe(res => {
+      console.log('Article created successfully!');
+      this.router.navigateByUrl('/tableProduit');
+    })
   }
 
-  
+
 }
