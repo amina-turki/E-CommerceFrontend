@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {AdminComponent} from './layout/admin/admin.component';
 import {AuthComponent} from './layout/auth/auth.component';
-
+import {AfficherProduitComponent } from './FrontCommerce/Produit/afficher-produit/afficher-produit.component'
 const routes: Routes = [
   {
     path: '',
@@ -43,6 +43,16 @@ const routes: Routes = [
       {
         path: 'authentication',
         loadChildren: () => import('./pages/auth/auth.module').then(m => m.AuthModule)
+      }
+    ]
+  },
+  {
+    path: '',
+    component: AfficherProduitComponent,
+    children: [
+      {
+        path: 'AfficherProduitComponent',
+        loadChildren: () => import('./FrontCommerce/Produit/afficher-produit/model-afficher-produit.module').then(m => m.ModelAfficherProduitModule)
       }
     ]
   }

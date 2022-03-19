@@ -19,6 +19,7 @@ import { AfficherVenteComponent } from './FrontCommerce/Vente/afficher-vente/aff
 import { AfficherProduitComponent } from './FrontCommerce/Produit/afficher-produit/afficher-produit.component';
 import { AjouterProduitComponent } from './FrontCommerce/Produit/ajouter-produit/ajouter-produit.component';
 import { ModifierProduitComponent } from './FrontCommerce/Produit/modifier-produit/modifier-produit.component';
+import {HttpClientModule} from '@angular/common/http';
 
 //ng g m FrontCommerce/Produit/AjouterProduit/ModelAjouterProduit --routing
 @NgModule({
@@ -37,13 +38,14 @@ import { ModifierProduitComponent } from './FrontCommerce/Produit/modifier-produ
     AfficherProduitComponent,
     AjouterProduitComponent,
     ModifierProduitComponent,
+    
 
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    SharedModule
+    SharedModule,HttpClientModule
   ],
   schemas: [ NO_ERRORS_SCHEMA ],
   providers: [],
