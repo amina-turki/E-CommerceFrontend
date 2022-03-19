@@ -1,1 +1,31 @@
-<p>afficher-produit works!</p>
+<div class="row">
+    <div class="col-sm-12">
+        <!-- Contextual classes table starts -->
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nom</th>
+                        <th>Prix</th>
+                        <th>Etat</th>
+                        <th>Catégorie</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let produit of articles" class="table-active">
+                        <th scope="row">1</th>
+                        <td>{{produit.nom}}</td>
+                        <td>{{produit.etat}}</td>
+                        <td>{{produit.prix}}</td>
+                        <td>{{produit.etat}}</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <!-- </app-card> -->
+        <!-- Contextual classes table ends -->
+
+    </div>
+</div>

@@ -166,7 +166,7 @@ var MENUITEMS = [
         label: 'Tables',
         main: [
             {
-                state: 'bootstrap-table',
+                state: 'tableProduit',
                 name: 'Bootstrap Table',
                 type: 'sub',
                 icon: 'ti-receipt',

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { ProduitServiceService } from '../../Services/produit-service.service';
+import { Produit } from '../Produit';
 
 @Component({
   selector: 'app-afficher-produit',
@@ -8,16 +9,17 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 })
 export class AfficherProduitComponent implements OnInit {
 
-  constructor(private http: HttpClient) { }
-  cilents: any;
-  ngOnInit() {
-    this.getAll();
+  articles: any;
+
+  constructor(public produitService: ProduitServiceService) { }
+
+  ngOnInit(): void {
+    this.produitService.getAll().subscribe((data: Produit[]) => {
+      this.articles = data;
+      console.log(this.articles);
+    })
   }
-  getAll() {
-    this.http.get('http://localhost:8080/Ecommerce/E-Commerce_Backend/public/api/clients').subscribe(
-    data => {
-   // this.cilents=data;
-    console.log(data)
-    });
-  }
+
+
+
 }
