@@ -18,7 +18,7 @@ import { AjouterVenteComponent } from './FrontCommerce/Vente/ajouter-vente/ajout
 import { AfficherVenteComponent } from './FrontCommerce/Vente/afficher-vente/afficher-vente.component';
 //import { AfficherProduitComponent } from './FrontCommerce/Produit/afficher-produit/afficher-produit.component';
 //import { AjouterProduitComponent } from './FrontCommerce/Produit/ajouter-produit/ajouter-produit.component';
-import { ModifierProduitComponent } from './FrontCommerce/Produit/modifier-produit/modifier-produit.component';
+//import { ModifierProduitComponent } from './FrontCommerce/Produit/modifier-produit/modifier-produit.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
  
@@ -39,7 +39,7 @@ import { CommonModule } from '@angular/common';
     AfficherVenteComponent,
 
     //AjouterProduitComponent,
-    ModifierProduitComponent,
+    //ModifierProduitComponent,
 
   ],
   imports: [

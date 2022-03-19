@@ -12,15 +12,16 @@ import { Produit } from '../Produit';
 export class ModifierProduitComponent implements OnInit {
 
   id: number;
-  article: Produit;
+  article: any;
   form: FormGroup;
 
   constructor(public produitService: ProduitServiceService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
-    this.produitService.find(this.id).subscribe((data: Produit) => {
+  //  this.id = localStorage.getItem('id');
+    this.produitService.find(localStorage.getItem('id')).subscribe(data => {
       this.article = data;
+      console.log(data)
     });
     this.form = new FormGroup({
       nom: new FormControl('', [Validators.required, Validators.pattern('^[a-zAZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+')]),
@@ -33,7 +34,7 @@ export class ModifierProduitComponent implements OnInit {
   }
   submit() {
     console.log(this.form.value);
-    this.produitService.update(this.id, this.form.value).subscribe(res => {
+    this.produitService.update(localStorage.getItem('id'), this.form.value).subscribe(res => {
       console.log('Article updated successfully!');
       this.router.navigateByUrl('/tableProduit');
     })

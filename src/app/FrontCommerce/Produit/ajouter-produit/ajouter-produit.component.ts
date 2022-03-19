@@ -25,13 +25,10 @@ export class AjouterProduitComponent implements OnInit {
   get f() {
     return this.form.controls;
   }
-<<<<<<< HEAD
-  onsubmit() {
-    //console.log(this.form.value);
-=======
+
   submit() {
     console.log(this.form.value);
->>>>>>> ccfc4e7c84cf2cfba9c41722a567e26d0964c558
+
     this.produitService.create(this.form.value).subscribe(res => {
       console.log('Article created successfully!');
       this.router.navigateByUrl('/tableProduit');

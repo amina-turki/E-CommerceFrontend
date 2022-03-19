@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ProduitServiceService } from '../../Services/produit-service.service';
 import { MessageService } from '../../Services/message.service';
 import { Produit } from '../Produit';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-afficher-produit',
@@ -12,7 +13,7 @@ export class AfficherProduitComponent implements OnInit {
 
   articles: any;
 
-  constructor(private messageService: MessageService,public produitService: ProduitServiceService) { }
+  constructor( private router: Router,private messageService: MessageService,public produitService: ProduitServiceService) { }
 
   ngOnInit(): void {
    this.AfficheProduit()
@@ -34,9 +35,7 @@ export class AfficherProduitComponent implements OnInit {
 
   }
 
-  ModifierProduit(id){
-    
-  }
+
 
  getMessage() {
     this.messageService.getMessage().subscribe(
@@ -44,6 +43,9 @@ export class AfficherProduitComponent implements OnInit {
       { this.AfficheProduit(); 
       });
   }
-  
+  ModifierProduit(id){
+    localStorage.setItem('id',id)
+  this.router.navigateByUrl('/ModifierProduit/'+id);
+  }
 
 }
