@@ -3,13 +3,14 @@
     <form [formGroup]="form" (ngSubmit)="submit()">
       <div class="mb-3 mt-3">
         <label for="nom">Nom:</label>
-        <input type="text" class="form-control" id="nom" placeholder="Enter nom" name="nom" formControlName="nom">
+        <input type="text" class="form-control" id="nom" placeholder="Enter nom"  required name="nom" formControlName="nom">
       </div>
       <div class="mb-3">
         <label for="prix">Prix:</label>
-        <input type="number" class="form-control" id="prix" placeholder="Enter prix" name="prix" formControlName="prix">
+        <input type="text" class="form-control" id="prix" placeholder="Enter prix" required name="prix" formControlName="prix">
       </div>
   
-      <button class="btn btn-primary">Submit</button>
+      <button class="btn btn-primary">Ajouter</button>
     </form>
   </div>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -1,6 +1,8 @@
-export interface Produit {
-    id: number;
-    nom: string;
-    etat: string;
-    prix: number;
+export class Produit {
+    constructor (
+    id: number,
+    nom: string,
+    etat: string,
+    prix: number,
+    ){}
 }

@@ -1,15 +1,17 @@
 <div class="container mt-3">
     <h2>Modifier produit</h2>
-    <form #userForm="ngForm"  (ngSubmit)="submit()"> 
+    <form     #userForm="ngForm"  (ngSubmit)="submit(userForm)"> 
       <div class="mb-3 mt-3">
         <label for="nom">Nom:</label>
-        <input type="text" class="form-control" id="nom" #nom="ngModel" placeholder="Enter nom" name="nom" [(ngModel)]="article.nom">
+        <input type="text" class="form-control" id="nom" #nom="ngModel" [class.is-invalid]="nom.invalid && nom.touched"  required  placeholder="Enter nom" name="nom" [(ngModel)]="article.nom">
+       
       </div>
       <div class="mb-3">
         <label for="prix">Prix:</label>
-        <input type="number" class="form-control" id="prix" #prix="ngModel" placeholder="Enter prix" name="prix" [(ngModel)]="article.prix">
+        <input type="text" class="form-control" id="prix" #prix="ngModel"[class.is-invalid]="prix.invalid && prix.touched" placeholder="Enter prix" name="prix" required [(ngModel)]="article.prix">
       </div>
-  
-      <button class="btn btn-primary">Submit</button>
+      
+      <button class="btn btn-primary">Modifier</button>
     </form>
   </div>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

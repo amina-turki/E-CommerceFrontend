@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProduitServiceService } from '../../Services/produit-service.service';
-import { Produit } from '../Produit';
-
+//import Swal from 'sweetalert2/dist/sweetalert2.js'; //npm i sweetalert2
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-modifier-produit',
   templateUrl: './modifier-produit.component.html',
@@ -11,17 +11,18 @@ import { Produit } from '../Produit';
 })
 export class ModifierProduitComponent implements OnInit {
 
-  id: number;
   article: any;
   form: FormGroup;
 
-  constructor(public produitService: ProduitServiceService, private route: ActivatedRoute, private router: Router) { }
+  constructor(public produitService: ProduitServiceService, private route: ActivatedRoute, private router: Router) { 
+    
+  }
 
   ngOnInit(): void {
-  //  this.id = localStorage.getItem('id');
+  
     this.produitService.find(localStorage.getItem('id')).subscribe(data => {
       this.article = data;
-      console.log(data)
+      //console.log(data)
     });
     this.form = new FormGroup({
       nom: new FormControl('', [Validators.required, Validators.pattern('^[a-zAZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+')]),
@@ -32,12 +33,32 @@ export class ModifierProduitComponent implements OnInit {
   get f() {
     return this.form.controls;
   }
-  submit() {
-    console.log(this.form.value);
-    this.produitService.update(localStorage.getItem('id'), this.form.value).subscribe(res => {
+  submit(userForm) {
+    
+    if( this.article.nom!='' && this.article.prix!=''){
+    this.produitService.update(localStorage.getItem('id'), userForm.value).subscribe(res => {
       console.log('Article updated successfully!');
       this.router.navigateByUrl('/tableProduit');
     })
+
+ 
+    Swal.fire({
+      title:'Modifier Avec succés ',
+      icon:'success',
+      showConfirmButton: false,
+      timer: 2000  
+    });
+  }
+  else{
+    Swal.fire({
+      
+      title:'Verfier les champs ',
+      icon:'error',
+      showConfirmButton: false,
+      timer: 2000   
+    });
+  }
   }
 
+  
 }

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProduitServiceService } from '../../Services/produit-service.service';
-
+import Swal from 'sweetalert2'
 @Component({
   selector: 'app-ajouter-produit',
   templateUrl: './ajouter-produit.component.html',
@@ -12,7 +12,14 @@ export class AjouterProduitComponent implements OnInit {
 
   form: FormGroup;
 
-  constructor(private fb: FormBuilder,public produitService: ProduitServiceService, private router: Router) { }
+  constructor(private fb: FormBuilder,public produitService: ProduitServiceService, private router: Router) {
+   /* this.form = this.fb.group({
+      nom: ['', Validators.required],
+      prix: ['', Validators.required],
+   
+     
+    });*/
+   }
 
   ngOnInit(): void {
     this.form = new FormGroup({
@@ -27,13 +34,30 @@ export class AjouterProduitComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.form.value);
-
+    
+    if(this.form.get('nom').value!=''&&this.form.get('prix').value!=''){
     this.produitService.create(this.form.value).subscribe(res => {
       console.log('Article created successfully!');
       this.router.navigateByUrl('/tableProduit');
     })
+    Swal.fire({
+      title:'Modifier Avec succés ',
+      icon:'success',
+      showConfirmButton: false,
+      timer: 2000  
+    });
+  }
+  else{
+    Swal.fire({
+      
+      title:'Verfier les champs ',
+      icon:'error',
+      showConfirmButton: false,
+      timer: 2000   
+    });
+  }
   }
 
+  
 
 }
