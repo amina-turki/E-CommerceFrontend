@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
  
 import { CommonModule } from '@angular/common';
+//import { AjouterCategorieComponent } from './FrontCommerce/Categorie/ajouter-categorie/ajouter-categorie.component';
 //ng g m FrontCommerce/Produit/AjouterProduit/ModelAjouterProduit --routing
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { CommonModule } from '@angular/common';
     ModifierVenteComponent,
     AjouterVenteComponent,
     AfficherVenteComponent,
+   // AjouterCategorieComponent,
 
     //AjouterProduitComponent,
     //ModifierProduitComponent,

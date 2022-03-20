@@ -17,6 +17,7 @@
               <li class="breadcrumb-item">
                 <a [routerLink]="'/AjouterProduit'">
                     <button type="button" class="btn btn-secondary">Ajouter</button>
+                    
                 </a>
               </li>
             
@@ -28,6 +29,12 @@
   </div>
   <!-- Page-header end -->
   
+
+  <div class="col-5">
+    <input class="form-control" type="text" placeholder="Search..." [(ngModel)]="searchText" id="example-text-input">
+  </div>
+<br>
+ 
 <div class="row">
     <div class="col-sm-12">
         <!-- Contextual classes table starts -->
@@ -44,17 +51,21 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let produit of articles" class="table-active">
+                    <tr *ngFor="let produit of articles | filter_produit:searchText ;" >
                        
                         <td>{{produit.nom}}</td>
+                        <td>{{produit.prix}}&nbsp;DT</td>
                         <td>{{produit.etat}}</td>
-                        <td>{{produit.prix}}</td>
+                        
                         <td>{{produit.etat}}</td>
                         <td>
                        
                         <button (click)="SupprimerProduit(produit.id)" class="btns"><i class="fa fa-trash"></i></button>
-&nbsp;
+                        &nbsp;
                         <button (click)="ModifierProduit(produit.id)" class="btnn"><i class="fa fa-edit"></i></button>
+                        &nbsp;
+                        <button class="btnc" (click)="openLarge(contentdemarche,produit.id)"><i class="fa fa-align-left"></i>
+                        </button>
 
                         </td>
                     </tr>
@@ -67,3 +78,21 @@
 
     </div>
 </div>
+
+<div class="card-body">
+  <div class="divider"></div>
+<ng-template #contentdemarche let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title ">Ajouter les inforamtion de Catégorie</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+   <app-ajouter-categorie></app-ajouter-categorie>
+  </div>
+</ng-template> 
+
+</div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -1,5 +1,26 @@
 <div class="container mt-3">
     <h2>Ajouter produit</h2>
+    <form  #userForm="ngForm" (ngSubmit)="submit(userForm)">
+      <div class="mb-3 mt-3">
+        <label for="nom">Nom:</label>
+        <input type="text" class="form-control" id="nom" #nom="ngModel" [class.is-invalid]="nom.invalid && nom.touched"  required  placeholder="Enter nom" name="nom" [(ngModel)]="nome">
+      </div>
+      <div class="mb-3">
+        <label for="prix">Prix:</label>
+        <input type="text" class="form-control" id="prix" #prix="ngModel"[class.is-invalid]="prix.invalid && prix.touched" placeholder="Enter prix" name="prix" required [(ngModel)]="prixx">
+
+      </div>
+  
+      <button class="btn btn-primary">Ajouter</button>
+    </form>
+  </div>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  <!--
+
+
+    <div class="container mt-3">
+    <h2>Ajouter produit</h2>
     <form [formGroup]="form" (ngSubmit)="submit()">
       <div class="mb-3 mt-3">
         <label for="nom">Nom:</label>
@@ -14,3 +35,4 @@
     </form>
   </div>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  -->
