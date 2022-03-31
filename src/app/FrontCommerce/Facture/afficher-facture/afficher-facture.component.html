@@ -1,1 +1,98 @@
-<p>afficher-facture works!</p>
+<!-- Page-header start -->
+<div class="" >
+    <div class="page-header card" >
+      <div class="row align-items-end" >
+        <div class="col-lg-8">
+          <div class="page-header-title">
+            <span > <i class="icofont icofont-table bg-c-blue"></i></span>
+            <div class="d-inline">
+              <span class="d-block"><h4>Produit</h4></span>
+             
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="page-header-breadcrumb">
+            <ul class="breadcrumb">
+              <li class="breadcrumb-item">
+              
+                    <button  (click)="formulaireAjouter()" type="button" class="btn btn-secondary">Ajouter</button>
+                    
+               
+              </li>
+            
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page-header end -->
+  
+
+  <div class="col-5">
+    <input class="form-control" type="text" placeholder="Search..." [(ngModel)]="searchText" id="example-text-input">
+  </div>
+<br>
+ 
+<div class="row">
+    <div class="col-sm-12">
+        <!-- Contextual classes table starts -->
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        
+                        <th>Code</th>
+                        <th>Nom_societe</th>
+                        <th>Adresse</th>
+                        <th>Prix Totale</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let produit of articles ;" >
+                       
+                        <td>{{produit.code}}</td>
+                        <td>{{produit.nom_societe}}</td>
+                        <td>{{produit.adresse}}</td>
+                        
+                        <td>{{produit.quantite}}</td>
+                        <td>
+                       
+                        <button (click)="SupprimerProduit(produit.id)" class="btns"><i class="fa fa-trash"></i></button>
+                        &nbsp;
+                        <button (click)="ModifierProduit(produit.id)" class="btnn"><i class="fa fa-edit"></i></button>
+                        &nbsp;
+                        <button class="btnc" (click)="openLarge(contentdemarche,produit.id)"><i class="fa fa-align-left"></i>
+                        </button>
+
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <!-- </app-card> -->
+        <!-- Contextual classes table ends -->
+
+    </div>
+</div>
+
+<div class="card-body">
+  <div class="divider"></div>
+<ng-template #contentdemarche let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title ">Ajouter les inforamtion de Facture</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+   <app-ajouter-categorie></app-ajouter-categorie>
+  </div>
+</ng-template> 
+
+</div>
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
