@@ -90,4 +90,7 @@ export class AfficherProduitComponent implements OnInit {
         return `with: ${reason}`;
       }
     }
+    formulaireAjouter(){
+      this.router.navigateByUrl('/AjouterProduit');
+    }
 }
