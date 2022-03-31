@@ -23,6 +23,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
  
 import { CommonModule } from '@angular/common';
+import { AjouterFactureComponent } from './FrontCommerce/Facture/ajouter-facture/ajouter-facture.component';
+import { AfficherFactureComponent } from './FrontCommerce/Facture/afficher-facture/afficher-facture.component';
+import { ModifierFactureComponent } from './FrontCommerce/Facture/modifier-facture/modifier-facture.component';
 //import { AjouterCategorieComponent } from './FrontCommerce/Categorie/ajouter-categorie/ajouter-categorie.component';
 //ng g m FrontCommerce/Produit/AjouterProduit/ModelAjouterProduit --routing
 @NgModule({
@@ -38,6 +41,9 @@ import { CommonModule } from '@angular/common';
     ModifierVenteComponent,
     AjouterVenteComponent,
     AfficherVenteComponent,
+    AjouterFactureComponent,
+    AfficherFactureComponent,
+    ModifierFactureComponent,
    // AjouterCategorieComponent,
 
     //AjouterProduitComponent,
