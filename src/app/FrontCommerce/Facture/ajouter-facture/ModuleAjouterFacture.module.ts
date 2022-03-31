@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ModuleAjouterFactureRoutingModule } from './ModuleAjouterFacture-routing.module';
+import { ModuleModifierFactureRoutingModule } from './ModuleAjouterFacture-routing.module';
 
 
 
@@ -9,7 +9,7 @@ import { ModuleAjouterFactureRoutingModule } from './ModuleAjouterFacture-routin
   declarations: [],
   imports: [
     CommonModule,
-    ModuleAjouterFactureRoutingModule
+    ModuleModifierFactureRoutingModule
   ]
 })
 export class ModuleAjouterFactureModule { }
