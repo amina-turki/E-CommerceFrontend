@@ -21,8 +21,8 @@ const routes: Routes = [
       },
       
       {
-        path: 'tableFcture',
-        loadChildren: () => import('./FrontCommerce/Facture/afficher-facture/ModuleAfficherFacture.module').then(m => m.ModuleAfficherFactureModule)
+        path: 'tableFacture',
+        loadChildren: () => import('./FrontCommerce/Facture/afficher-facture/moduleAfficherFacture.module').then(m => m.ModuleAfficherFactureModule)
       },
       {
         path: 'AjouterProduit',

@@ -13,7 +13,7 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 export class AfficherFactureComponent implements OnInit {
 
   closeResult: string;
-  articles: any;
+  Factures: any;
   searchText : string;
   constructor( private modalService: NgbModal, private router: Router,private messageService: MessageService,public FactureService: FactureServiceService) { }
 
@@ -24,8 +24,8 @@ export class AfficherFactureComponent implements OnInit {
 
   AfficheProduit(){
     this.FactureService.getAll().subscribe((data: Facture[]) => {
-      this.articles = data;
-      console.log(this.articles);
+      this.Factures = data;
+      console.log(this.Factures);
     })
   }
 
@@ -47,7 +47,7 @@ export class AfficherFactureComponent implements OnInit {
         })
         this.FactureService.Delete(id).subscribe((data) => {
           this.messageService.setMessage('delete  Produit ');
-         // console.log(this.articles);
+         // console.log(this.Factures);
         })
       }
     })
@@ -73,6 +73,14 @@ export class AfficherFactureComponent implements OnInit {
     localStorage.setItem('idP',id);
   }
 
+
+  openLargeFacture(contentdemarcheFacture) {
+   
+    this.modalService.open(contentdemarcheFacture, {
+      size: 'lg'
+    });
+  
+  }
 
     open(content) {
       

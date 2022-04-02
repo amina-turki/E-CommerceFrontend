@@ -67,9 +67,9 @@ const MENUITEMS = [
       },
 
       {
-        state: 'user',
+        state: 'tableFacture',
         short_label: 'n',
-        name: 'Ventes',
+        name: 'Factures',
         type: 'link',
         icon: 'ti-receipt'
       },

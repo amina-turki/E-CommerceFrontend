@@ -22,16 +22,16 @@ export class AjouterProduitComponent implements OnInit {
   
    
     this.form = new FormGroup({
+      referance: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
       nom: new FormControl('', [Validators.required, Validators.pattern('^[a-zAZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+')]),
-
-      prix: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")])
+      prixA: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")])
     });
   }
   get f() {
     return this.form.controls;
   }
   submit(userForm) {
-   
+   console.log(userForm.value)
     if(userForm.valid!=''){
     this.produitService.create(userForm.value).subscribe(res => {
       console.log('Article created successfully!');

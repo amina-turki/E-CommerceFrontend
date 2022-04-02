@@ -1,1 +1,76 @@
-<p>ajouter-facture works!</p>
+<div class="container mt-3">
+    <h2>Ajouter produit</h2>
+    <form  #userForm="ngForm" (ngSubmit)="submit(userForm)">
+        
+      <div class="mb-3 mt-3">
+        <label for="nom">code:</label>
+        <input type="text" class="form-control" id="code" #code="ngModel" [class.is-invalid]="code.invalid && code.touched"  required  placeholder="Enter code" name="code" [(ngModel)]="codee">
+      </div>
+
+      <div class="mb-3">
+        <label for="prix">tva:</label>
+        <input type="text" class="form-control"  #tva="ngModel"[class.is-invalid]="tva.invalid && tva.touched" placeholder="Enter tva" name="tva" required [(ngModel)]="tvaa">
+      </div>
+
+
+      <div class="mb-3 mt-3">
+        <label for="nom">nom_societe:</label>
+        <input type="text" class="form-control" id="nom_societe" #nomsociete="ngModel" [class.is-invalid]="nomsociete.invalid && nomsociete.touched"  required  placeholder="Enter nomsociete" name="nomsociete" [(ngModel)]="nomsocietee">
+      </div>
+
+      <div class="mb-3">
+        <label for="prix">adresse:</label>
+        <input type="text" class="form-control" id="adresse" #adresse="ngModel"[class.is-invalid]="adresse.invalid && adresse.touched" placeholder="Enter adresse" name="adresse" required [(ngModel)]="adressee">
+      </div>
+
+
+  
+<div class="card main-card mb-3">
+    <div class="card-header"> 
+      Choisissez des colis
+      </div>
+      <table class="table table-striped">
+        <thead>
+        <tr>
+            
+            <th>Nom</th>
+            <th>Prix</th>
+            <th>Etat</th>
+            <th>Catégorie</th>
+            
+            <th class="text-center">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr  *ngFor = "let produit of articles">
+         
+            <td>{{produit.nom}}</td>
+            <td>{{produit.prix}}&nbsp;DT</td>
+            <td>{{produit.etat}}</td>
+            
+            <td>{{produit.etat}}</td>
+          <td class="text-center">
+       <!-- <button  *ngIf="show" id="btn" class="mr-2 btn-icon btn-icon-only btn btn-outline-info"  (click)="envoyer(g.id)">
+                +
+              </button>
+              <button (click)="envoyer(g.id)">
+               <a *ngIf='!g.inputshow' id="g-{{ g.id }} " (click)="g.inputshow = !g.inputshow"> +</a>
+              </button>-->
+    
+              <button class="mr-2 btn-icon btn-icon-only btn btn-outline-info"  (click)="envoyer(produit.id)" >
+                <i class="fa fa-plus btn-icon-wrapper"> </i>
+              </button>
+        
+      <!-- <button (click)="Delete(g.id)" class="mr-2 btn-icon btn-icon-only btn btn-warning">
+          <i class="fa fa-eye btn-icon-wrapper"> </i>
+        </button>--> 
+     </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    
+      <button class="btn btn-primary">Ajouter</button>
+    </form>
+  </div>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

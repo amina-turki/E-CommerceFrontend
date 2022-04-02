@@ -6,7 +6,7 @@
           <div class="page-header-title">
             <span > <i class="icofont icofont-table bg-c-blue"></i></span>
             <div class="d-inline">
-              <span class="d-block"><h4>Produit</h4></span>
+              <span class="d-block"><h4>facture</h4></span>
              
             </div>
           </div>
@@ -16,7 +16,7 @@
             <ul class="breadcrumb">
               <li class="breadcrumb-item">
               
-                    <button  (click)="formulaireAjouter()" type="button" class="btn btn-secondary">Ajouter</button>
+                    <button  (click)="openLargeFacture(contentdemarcheFacture)" type="button" class="btn btn-secondary">Ajouter</button>
                     
                
               </li>
@@ -51,20 +51,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let produit of articles ;" >
+                    <tr *ngFor="let facture of Factures ;" >
                        
-                        <td>{{produit.code}}</td>
-                        <td>{{produit.nom_societe}}</td>
-                        <td>{{produit.adresse}}</td>
+                        <td>{{facture.code}}</td>
+                        <td>{{facture.nom_societe}}</td>
+                        <td>{{facture.adresse}}</td>
                         
-                        <td>{{produit.quantite}}</td>
+                        <td>{{facture.quantite}}</td>
                         <td>
                        
-                        <button (click)="SupprimerProduit(produit.id)" class="btns"><i class="fa fa-trash"></i></button>
+                        <button (click)="Supprimerfacture(facture.id)" class="btns"><i class="fa fa-trash"></i></button>
                         &nbsp;
-                        <button (click)="ModifierProduit(produit.id)" class="btnn"><i class="fa fa-edit"></i></button>
+                        <button (click)="Modifierfacture(facture.id)" class="btnn"><i class="fa fa-edit"></i></button>
                         &nbsp;
-                        <button class="btnc" (click)="openLarge(contentdemarche,produit.id)"><i class="fa fa-align-left"></i>
+                        <button class="btnc" (click)="openLarge(contentdemarche,facture.id)"><i class="fa fa-align-left"></i>
                         </button>
 
                         </td>
@@ -89,10 +89,25 @@
     </button>
   </div>
   <div class="modal-body">
-   <app-ajouter-categorie></app-ajouter-categorie>
+  
   </div>
 </ng-template> 
+</div>
 
+
+<div class="card-body">
+  <div class="divider"></div>
+<ng-template #contentdemarcheFacture let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title ">Ajouter les inforamtion de Facture</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+   <app-ajouter-facture></app-ajouter-facture>
+  </div>
+</ng-template> 
 </div>
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

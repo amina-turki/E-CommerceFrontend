@@ -42,20 +42,20 @@
             <table class="table">
                 <thead>
                     <tr>
-                        
+                      <th>Referance</th>
                         <th>Nom</th>
-                        <th>Prix</th>
+                        <th>prix Achat</th>
+                        <th>prix Vente</th>
                         <th>Etat</th>
-                        <th>Catégorie</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let produit of articles | filter_produit:searchText ;" >
-                       
+                      <td>{{produit.referance}}</td>
                         <td>{{produit.nom}}</td>
-                        <td>{{produit.prix}}&nbsp;DT</td>
-                        <td>{{produit.etat}}</td>
+                        <td>{{produit.prixA}}&nbsp;DT</td>
+                        <td>{{produit.prixV}}&nbsp;DT</td>
                         
                         <td>{{produit.etat}}</td>
                         <td>

@@ -22,12 +22,12 @@ export class ModifierProduitComponent implements OnInit {
   
     this.produitService.find(localStorage.getItem('id')).subscribe(data => {
       this.article = data;
-      //console.log(data)
+      console.log(data)
     });
     this.form = new FormGroup({
+      referance: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
       nom: new FormControl('', [Validators.required, Validators.pattern('^[a-zAZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+')]),
-
-      prix: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")])
+      prixA: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")])
     });
   }
   get f() {
