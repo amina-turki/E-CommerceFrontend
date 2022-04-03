@@ -1,0 +1,44 @@
+
+  
+
+  <div class="col-5">
+    <input class="form-control" type="text" placeholder="Search..." [(ngModel)]="searchText" id="example-text-input">
+  </div>
+<br>
+ 
+<div class="row">
+    <div class="col-sm-12">
+        <!-- Contextual classes table starts -->
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let categorie of categories " >
+                      <td>{{categorie.type}}</td>
+                      <td>{{categorie.description}}</td>
+                        <td>
+                        <button (click)="Supprimercategorie(categorie.id)" class="btns"><i class="fa fa-trash"></i></button>
+                        &nbsp;
+                        <button (click)="Modifiercategorie(categorie.id)" class="btnn"><i class="fa fa-edit"></i></button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <!-- </app-card> -->
+        <!-- Contextual classes table ends -->
+
+    </div>
+</div>
+
+
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -28,11 +28,32 @@ const routes: Routes = [
         path: 'AjouterProduit',
         loadChildren: () => import('./FrontCommerce/Produit/ajouter-produit/model-ajouter-produit.module').then(m => m.ModelAjouterProduitModule)
       }, 
+      {
+        path: 'ModifierCategorie/:id',
+        loadChildren: () => import('./FrontCommerce/Categorie/modifiercat/module-modifier-cat.module').then(m => m.ModuleModifierCatModule)
+      }, 
+
 
       {
         path: 'ModifierProduit/:id',
         loadChildren: () => import('./FrontCommerce/Produit/modifier-produit/model-modifier-produit.module').then(m => m.ModelModifierProduitModule)
       }, 
+      {
+        path: 'AfficherUnCategorie/:id',
+        loadChildren: () => import('./FrontCommerce/Categorie/afficher-cat-par-produit/module-affcher-par-categorie.module').then(m => m.ModuleAjoutCategorieModule)
+      }, 
+
+      {
+        path: 'AfficherCategorie',
+        loadChildren: () => import('./FrontCommerce/Categorie/afficher-cat/module-affcher-categorie.module').then(m => m.ModuleAjoutCategorieModule)
+      }, 
+
+      {
+        path: 'AjouterCategorie',
+        loadChildren: () => import('./FrontCommerce/Categorie/ajouter-categorie/module-ajout-categorie.module').then(m => m.ModuleAfficherCategorieModule)
+      }, 
+
+
       {
         path: 'notifications',
         loadChildren: () => import('./pages/ui-elements/advance/notifications/notifications.module').then(m => m.NotificationsModule)

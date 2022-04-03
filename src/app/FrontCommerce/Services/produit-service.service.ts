@@ -19,6 +19,8 @@ export class ProduitServiceService {
 
   }
 
+ 
+
   create(article): Observable<Produit> {
     return this.httpClient.post<Produit>(this.apiURL, article)
   }
@@ -34,4 +36,7 @@ export class ProduitServiceService {
   find(id): Observable<Produit[]> {
     return this.httpClient.get<Produit[]>(this.apiURL+'/'+id)
   }
+
+
+  
 }

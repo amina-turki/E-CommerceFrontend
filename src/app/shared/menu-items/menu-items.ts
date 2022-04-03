@@ -67,6 +67,14 @@ const MENUITEMS = [
       },
 
       {
+        state: 'AfficherCategorie',
+        short_label: 'n',
+        name: 'Categories',
+        type: 'link',
+        icon: 'ti-receipt'
+      },
+
+      {
         state: 'tableFacture',
         short_label: 'n',
         name: 'Factures',

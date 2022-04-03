@@ -26,6 +26,10 @@ import { CommonModule } from '@angular/common';
 //import { AjouterFactureComponent } from './FrontCommerce/Facture/ajouter-facture/ajouter-facture.component';
 //import { AfficherFactureComponent } from './FrontCommerce/Facture/afficher-facture/afficher-facture.component';
 import { ModifierFactureComponent } from './FrontCommerce/Facture/modifier-facture/modifier-facture.component';
+//import { ModifiercatComponent } from './FrontCommerce/Categorie/modifiercat/modifiercat.component';
+//import { AfficherCatComponent } from './FrontCommerce/Categorie/afficher-cat/afficher-cat.component';
+//import { AfficherCatParProduitComponent } from './FrontCommerce/Categorie/afficher-cat-par-produit/afficher-cat-par-produit.component';
+
 //import { AjouterCategorieComponent } from './FrontCommerce/Categorie/ajouter-categorie/ajouter-categorie.component';
 //ng g m FrontCommerce/Produit/AjouterProduit/ModelAjouterProduit --routing
 @NgModule({
@@ -44,6 +48,10 @@ import { ModifierFactureComponent } from './FrontCommerce/Facture/modifier-factu
    // AjouterFactureComponent,
   //  AfficherFactureComponent,
     ModifierFactureComponent,
+   //ModifiercatComponent,
+  // AfficherCatComponent,
+  // AfficherCatParProduitComponent,
+  
    // AjouterCategorieComponent,
 
     //AjouterProduitComponent,

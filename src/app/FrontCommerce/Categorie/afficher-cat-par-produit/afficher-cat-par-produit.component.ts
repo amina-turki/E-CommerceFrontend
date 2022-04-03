@@ -2,18 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { ProduitServiceService } from '../../Services/produit-service.service';
 import { CategorieServiceService } from '../../Services/categorie-service.service';
 import { MessageService } from '../../Services/message.service';
-import { Produit } from '../Produit';
+import { Categorie } from '../Categorie';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2'
 import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 @Component({
-  selector: 'app-afficher-produit',
-  templateUrl: './afficher-produit.component.html',
-  styleUrls: ['./afficher-produit.component.scss']
+  selector: 'app-afficher-cat-par-produit',
+  templateUrl: './afficher-cat-par-produit.component.html',
+  styleUrls: ['./afficher-cat-par-produit.component.scss']
 })
-export class AfficherProduitComponent implements OnInit {
+export class AfficherCatParProduitComponent implements OnInit {
+
   closeResult: string;
-  articles: any;
+  categories: any;
   searchText : string;
   constructor( private CategorieService: CategorieServiceService,private modalService: NgbModal, private router: Router,private messageService: MessageService,public produitService: ProduitServiceService) { }
 
@@ -23,13 +24,15 @@ export class AfficherProduitComponent implements OnInit {
   }
 
   AfficheProduit(){
-    this.produitService.getAll().subscribe((data: Produit[]) => {
-      this.articles = data;
-      console.log(this.articles);
+    console.log(localStorage.getItem('idproduitCat'));
+    this.CategorieService.afficheCatparProd(localStorage.getItem('idproduitCat')).subscribe((data: Categorie[]) => {
+      this.categories = data;
+      console.log(data);
     })
   }
 
-  SupprimerProduit(id){
+  Supprimercategorie(id){
+    console.log(id)
     Swal.fire({
       title: 'Êtes-vous sûr?',
       icon: 'warning',
@@ -45,9 +48,9 @@ export class AfficherProduitComponent implements OnInit {
         showConfirmButton: false,
         timer: 2000  
         })
-        this.produitService.Delete(id).subscribe((data) => {
+        this.CategorieService.Delete(id).subscribe((data) => {
           this.messageService.setMessage('delete  Produit ');
-         // console.log(this.articles);
+         // console.log(this.categories);
         })
       }
     })
@@ -91,15 +94,11 @@ export class AfficherProduitComponent implements OnInit {
         return `with: ${reason}`;
       }
     }
-    formulaireAjouter(){
-      this.router.navigateByUrl('/AjouterProduit');
-    }
-    Console(contentdemarcheCat,id){
-      this.modalService.open(contentdemarcheCat, {
-        size: 'lg'
-      });
-    localStorage.setItem('idproduitCat',id)
-      //this.router.navigateByUrl('/AfficherUnCategorie/'+id);
+   
+  
 
+    Modifiercategorie(id){
+      localStorage.setItem('idModif',id)
+      this.router.navigateByUrl('/ModifierCategorie/'+id); 
     }
 }

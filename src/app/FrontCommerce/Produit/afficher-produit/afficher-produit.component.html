@@ -45,7 +45,7 @@
                       <th>Referance</th>
                         <th>Nom</th>
                         <th>prix Achat</th>
-                        <th>prix Vente</th>
+                       
                         <th>Etat</th>
                         <th></th>
                     </tr>
@@ -54,9 +54,7 @@
                     <tr *ngFor="let produit of articles | filter_produit:searchText ;" >
                       <td>{{produit.referance}}</td>
                         <td>{{produit.nom}}</td>
-                        <td>{{produit.prixA}}&nbsp;DT</td>
-                        <td>{{produit.prixV}}&nbsp;DT</td>
-                        
+                        <td>{{produit.prixA}}&nbsp;DT</td>                       
                         <td>{{produit.etat}}</td>
                         <td>
                        
@@ -64,9 +62,10 @@
                         &nbsp;
                         <button (click)="ModifierProduit(produit.id)" class="btnn"><i class="fa fa-edit"></i></button>
                         &nbsp;
-                        <button class="btnc" (click)="openLarge(contentdemarche,produit.id)"><i class="fa fa-align-left"></i>
-                        </button>
-
+                        <button class="btnc" (click)="openLarge(contentdemarche,produit.id)"><i class="fa fa-align-left"></i></button>
+                       
+                        &nbsp;
+                        <button (click)="Console(contentdemarcheCat,produit.id)" class="btnAf" ><i class="fa fas fa-eye"></i></button>
                         </td>
                     </tr>
 
@@ -94,5 +93,23 @@
 </ng-template> 
 
 </div>
+
+
+<div class="card-body">
+  <div class="divider"></div>
+<ng-template #contentdemarcheCat let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title ">Afficher les inforamtion de Catégorie</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+   <app-afficher-cat-par-produit></app-afficher-cat-par-produit>
+  </div>
+</ng-template> 
+
+</div>
+
 
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
