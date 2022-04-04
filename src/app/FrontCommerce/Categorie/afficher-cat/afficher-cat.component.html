@@ -1,0 +1,67 @@
+
+  <!-- Page-header start -->
+<div class="" >
+    <div class="page-header card" >
+      <div class="row align-items-end" >
+        <div class="col-lg-8">
+          <div class="page-header-title">
+            <span > <i class="icofont icofont-table bg-c-blue"></i></span>
+            <div class="d-inline">
+              <span class="d-block"><h4>Catégiries</h4></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Page-header end -->
+
+  <div class="col-5">
+    <input class="form-control" type="text" placeholder="Search..." [(ngModel)]="searchText" id="example-text-input">
+  </div>
+<br>
+ 
+<div class="row">
+    <div class="col-sm-12">
+        <!-- Contextual classes table starts -->
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Referance</th>
+                        <th>Nom</th>
+                        <th>prix Achat</th>
+                        <th>Etat</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let categorie of categories " >
+                        <td>{{categorie.referance}}</td>
+                        <td>{{categorie.nom}}</td>
+                        <td>{{categorie.prixA}}&nbsp;DT</td>                       
+                        <td>{{categorie.etat}}</td>
+                      <td>{{categorie.type}}</td>
+                      <td>{{categorie.description}}</td>
+                        <td>
+                        <button (click)="Supprimercategorie(categorie.idc)" class="btns"><i class="fa fa-trash"></i></button>
+                        &nbsp;
+                        <button (click)="Modifiercategorie(categorie.idc)" class="btnn"><i class="fa fa-edit"></i></button>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <!-- </app-card> -->
+        <!-- Contextual classes table ends -->
+
+    </div>
+</div>
+
+
+
+
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
