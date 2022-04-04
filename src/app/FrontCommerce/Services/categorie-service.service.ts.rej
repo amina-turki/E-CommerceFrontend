@@ -1,0 +1,27 @@
+diff a/src/app/FrontCommerce/Services/categorie-service.service.ts b/src/app/FrontCommerce/Services/categorie-service.service.ts	(rejected hunks)
+@@ -15,5 +15,25 @@
+   create(categorie,id): Observable<Categorie> {
+     return this.httpClient.post<Categorie>(this.apiURLAjout+'/'+id, categorie)
+   }
++
++  getAllc(): Observable<Categorie[]> {
++    return this.httpClient.get<Categorie[]>('http://localhost:81/BackendEcommerce/E-Commerce_Backend/public/api/getArticleCat')
++  }
+  
++  afficheCatparProd(id): Observable<Categorie> {
++    return this.httpClient.get<Categorie>('http://localhost:81/BackendEcommerce/E-Commerce_Backend/public/api/getArticleCatUnProd'+'/'+id)
++  }
++
++  update(id, categorie): Observable<Categorie> {
++    return this.httpClient.put<Categorie>(this.apiURL+'/'+id, categorie)
++  }
++
++  Delete(id) {
++    return this.httpClient.delete(this.apiURL + '/' + id)
++  }
++
++  find(id): Observable<Categorie[]> {
++    return this.httpClient.get<Categorie[]>(this.apiURL+'/'+id)
++  }
++
+ }
