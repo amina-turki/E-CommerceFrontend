@@ -1,21 +1,21 @@
 <div class="container mt-3">
-    <h2>Ajouter produit</h2>
+
     <form  #userForm="ngForm" (ngSubmit)="submit(userForm)">
         
       <div class="mb-3 mt-3">
         <label for="nom">code:</label>
-        <input type="text" class="form-control" id="code" #code="ngModel" [class.is-invalid]="code.invalid && code.touched"  required  placeholder="Enter code" name="code" [(ngModel)]="codee">
+        <input type="number" class="form-control" id="code" #code="ngModel" [class.is-invalid]="code.invalid && code.touched"  required  placeholder="Enter code" name="code" [(ngModel)]="codee">
       </div>
 
       <div class="mb-3">
         <label for="prix">tva:</label>
-        <input type="text" class="form-control"  #tva="ngModel"[class.is-invalid]="tva.invalid && tva.touched" placeholder="Enter tva" name="tva" required [(ngModel)]="tvaa">
+        <input type="number" class="form-control"  #tva="ngModel"[class.is-invalid]="tva.invalid && tva.touched" placeholder="Enter tva" name="tva" required [(ngModel)]="tvaa">
       </div>
 
 
       <div class="mb-3 mt-3">
         <label for="nom">nom_societe:</label>
-        <input type="text" class="form-control" id="nom_societe" #nomsociete="ngModel" [class.is-invalid]="nomsociete.invalid && nomsociete.touched"  required  placeholder="Enter nomsociete" name="nomsociete" [(ngModel)]="nomsocietee">
+        <input type="text" class="form-control" #nomsociete="ngModel" [class.is-invalid]="nomsociete.invalid && nomsociete.touched"  required  placeholder="Enter nomsociete" name="nom_societe" [(ngModel)]="nomsocietee">
       </div>
 
       <div class="mb-3">
@@ -23,6 +23,10 @@
         <input type="text" class="form-control" id="adresse" #adresse="ngModel"[class.is-invalid]="adresse.invalid && adresse.touched" placeholder="Enter adresse" name="adresse" required [(ngModel)]="adressee">
       </div>
 
+      <div class="mb-3">
+        <label for="prix">quantite:</label>
+        <input type="number" class="form-control"  #quantite="ngModel"[class.is-invalid]="quantite.invalid && quantite.touched" placeholder="Enter quantite" name="quantite" required [(ngModel)]="quantitee">
+      </div>
 
   
 <div class="card main-card mb-3">
@@ -61,16 +65,14 @@
                 <i class="fa fa-plus btn-icon-wrapper"> </i>
               </button>
         
-      <!-- <button (click)="Delete(g.id)" class="mr-2 btn-icon btn-icon-only btn btn-warning">
-          <i class="fa fa-eye btn-icon-wrapper"> </i>
-        </button>--> 
+    
      </td>
         </tr>
         </tbody>
       </table>
     </div>
     
-      <button class="btn btn-primary">Ajouter</button>
+     
     </form>
   </div>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>

@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl,FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ProduitServiceService } from '../../Services/produit-service.service';
+import {  FactureServiceService } from '../../Services/facture-service.service';
+import { ProduitServiceService }from '../../Services/produit-service.service';
 import Swal from 'sweetalert2';
 import { Produit } from '../../Produit/Produit';
-
+import { Facture } from '../Facture';
+import { HttpClient} from '@angular/common/http';
 @Component({
   selector: 'app-ajouter-facture',
   templateUrl: './ajouter-facture.component.html',
@@ -15,7 +17,7 @@ export class AjouterFactureComponent implements OnInit {
   article: any;
   form: FormGroup;
   articles: any;
-  constructor(public produitService: ProduitServiceService, private router: Router) { }
+  constructor(private http: HttpClient,public FactureService:FactureServiceService ,public produitService: ProduitServiceService, private router: Router) { }
 
   ngOnInit(): void {
     this.AfficheProduit()
@@ -23,7 +25,7 @@ export class AjouterFactureComponent implements OnInit {
     this.form = new FormGroup({
       code: new FormControl('', [Validators.required, Validators.pattern('^[a-zAZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+')]),
       tva: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
-      nom_societe: new FormControl('', [Validators.required, Validators.pattern('^[a-zAZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+')]),
+      nomsociete: new FormControl('', [Validators.required, Validators.pattern('^[a-zAZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+')]),
       adresse: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")]),
       quantite: new FormControl('', [Validators.required, Validators.pattern("^[0-9]*$")])
     });
@@ -32,7 +34,7 @@ export class AjouterFactureComponent implements OnInit {
   AfficheProduit(){
     this.produitService.getAll().subscribe((data: Produit[]) => {
       this.articles = data;
-      console.log(this.articles);
+    //  console.log(this.articles);
     })
   }
 
@@ -41,29 +43,30 @@ export class AjouterFactureComponent implements OnInit {
     return this.form.controls;
   }
 
-  submit(userForm) {
+
+  envoyer(id){
    
-    if(userForm.valid!=''){
-    this.produitService.create(userForm.value).subscribe(res => {
-      console.log('Article created successfully!');
-      this.router.navigateByUrl('/tableProduit');
+      localStorage.setItem('idCreer',id);
+ 
+  }
+  submit(userForm) {
+
+     this.http.get<any>('http://localhost:81/BackendEcommerce/E-Commerce_Backend/public/api/getTest/'+localStorage.getItem('idCreer')).subscribe(data=>{
+      if(data =="" && userForm.valid!=''){
+  
+   this.FactureService.createFacture(userForm.value,localStorage.getItem('idCreer')).subscribe(res => {
+      console.log(userForm.value)
+   })
+   alert("Ajouter Avec succés")
+  // this.router.navigateByUrl('/tableProduit');
+         }
+      else {
+        alert("Verfier les champs")
+      }
+    
     })
-    Swal.fire({
-      title:'Modifier Avec succés ',
-      icon:'success',
-      showConfirmButton: false,
-      timer: 2000  
-    });
-  }
-  else{
-    Swal.fire({
-      
-      title:'Verfier les champs ',
-      icon:'error',
-      showConfirmButton: false,
-      timer: 2000   
-    });
-  }
+  
+
   }
 
 
